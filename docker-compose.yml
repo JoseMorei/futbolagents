@@ -13,27 +13,27 @@ services:
     networks:
       - philoagents-network
   api:
-    container_name: philoagents-api
+    container_name: futbolagents-api
     build:
-      context: ./philoagents-api
+      context: ./futbolagents-api
       dockerfile: Dockerfile
     environment:
       - MONGODB_URI=mongodb://philoagents:philoagents@local_dev_atlas:27017/?directConnection=true
     ports:
       - "8000:8000"
     env_file:
-      - ./philoagents-api/.env
+      - ./futbolagents-api/.env
     networks:
       - philoagents-network
   ui:
-    container_name: philoagents-ui
+    container_name: futbolagents-ui
     build:
-      context: ./philoagents-ui
+      context: ./futbolagents-ui
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
     volumes:
-      - ./philoagents-ui:/app
+      - ./futbolagents-ui:/app
       - /app/node_modules
     depends_on:
       - api

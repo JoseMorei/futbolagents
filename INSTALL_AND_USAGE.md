@@ -90,7 +90,7 @@ Also, the course requires access to these cloud services. The authentication to 
 | [Opik](https://rebrand.ly/philoagents-opik) | LLMOps | Free tier (Hosted on Comet - same API Key) | `COMET_API_KEY` | [Quick Start Guide](https://rebrand.ly/philoagents-opik-quickstart) | Module 5 |
 | [OpenAI API](https://openai.com/index/openai-api/) | LLM API used for evaluation | Pay-per-use | `OPENAI_API_KEY` | [Quick Start Guide](https://platform.openai.com/docs/quickstart) | Module 5 |
 
-When working locally, the infrastructure is set up using Docker. Thus, you can use the default values found in the [config.py](philoagents-api/src/philoagents/config.py) file for all the infrastructure-related environment variables.
+When working locally, the infrastructure is set up using Docker. Thus, you can use the default values found in the [config.py](futbolagents-api/src/philoagents/config.py) file for all the infrastructure-related environment variables.
 
 But, in case you want to deploy the code, you'll need to setup the following services with their corresponding environment variables:
 
@@ -102,17 +102,17 @@ But, in case you want to deploy the code, you'll need to setup the following ser
 
 ## 1. Clone the Repository
 
-Start by cloning the repository and navigating to the `philoagents-api` project directory:
+Start by cloning the repository and navigating to the `futbolagents-api` project directory:
 ```
 git clone https://github.com/neural-maze/philoagents-course.git
-cd philoagents-course/philoagents-api
+cd philoagents-course/futbolagents-api
 ```
 
 Next, we have to prepare your Python environment and its dependencies.
 
 ## 2. Installation
 
-Inside the `philoagents-api` directory, to install the dependencies and activate the virtual environment, run the following commands:
+Inside the `futbolagents-api` directory, to install the dependencies and activate the virtual environment, run the following commands:
 
 ```bash
 uv venv .venv
@@ -133,7 +133,7 @@ This command will:
 
 ## 3. Environment Configuration
 
-Before running any command, inside the `philoagents-api` directory, you have to set up your environment:
+Before running any command, inside the `futbolagents-api` directory, you have to set up your environment:
 1. Create your environment file:
    ```bash
    cp .env.example .env
@@ -145,7 +145,7 @@ Before running any command, inside the `philoagents-api` directory, you have to 
 The project follows a clean architecture structure commonly used in production Python projects:
 
 ```bash
-philoagents-api/
+futbolagents-api/
     ├── data/                  # Data files
     ├── notebooks/             # Notebooks
     ├── src/philoagents/       # Main package directory
@@ -242,7 +242,7 @@ make create-long-term-memory
 ```
 
 > [!NOTE]
-> To visualize the raw and RAG data from MongoDB, we recommend using [MongoDB Compass](https://rebrand.ly/philoagents-mongodb-compass) or Mongo's official IDE plugin (e.g., `MongoDB for VS Code`). To connect to the working MongoDB instance, use the `MONGODB_URI` value from the `.env` file or found inside the [config.py](philoagents-api/src/philoagents/config.py) file.
+> To visualize the raw and RAG data from MongoDB, we recommend using [MongoDB Compass](https://rebrand.ly/philoagents-mongodb-compass) or Mongo's official IDE plugin (e.g., `MongoDB for VS Code`). To connect to the working MongoDB instance, use the `MONGODB_URI` value from the `.env` file or found inside the [config.py](futbolagents-api/src/philoagents/config.py) file.
 
 Next, you can access the game by typing in your browser:
 ```
@@ -290,7 +290,7 @@ To visualize the evaluation results, as seen in the screenshot below, you also h
 
 ![Opik](static/opik_evaluation_example.png)
 
-We already generated a dataset for you found at [data/evaluation_dataset.json](philoagents-api/data/evaluation_dataset.json), but in case you want to generate a new one (to override the existing one), you can run the following command:
+We already generated a dataset for you found at [data/evaluation_dataset.json](futbolagents-api/data/evaluation_dataset.json), but in case you want to generate a new one (to override the existing one), you can run the following command:
 ```bash
 make generate-evaluation-dataset
 ```
