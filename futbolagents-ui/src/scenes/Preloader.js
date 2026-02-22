@@ -36,9 +36,6 @@ export class Preloader extends Scene
         this.load.atlas("puskas", "characters/puskas/atlas.png", "characters/puskas/atlas.json");
         this.load.atlas("garrincha", "characters/garrincha/atlas.png", "characters/garrincha/atlas.json");
 
-        // Character assets - NPCs
-        this.load.atlas("miguel", "characters/miguel/atlas.png", "characters/miguel/atlas.json");
-        this.load.atlas("paul", "characters/paul/atlas.png", "characters/paul/atlas.json");
     }
 
     create ()

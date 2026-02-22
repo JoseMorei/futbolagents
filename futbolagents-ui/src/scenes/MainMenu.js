@@ -20,8 +20,8 @@ export class MainMenu extends Scene {
             this.showInstructions();
         });
 
-        this.createButton(centerX, startY + buttonSpacing * 2, 'Support Futbolagents', () => {
-            window.open('https://github.com/neural-maze/futbolagents', '_blank');
+        this.createButton(centerX, startY + buttonSpacing * 2, 'Original Project Code here', () => {
+            window.open('https://github.com/neural-maze/philoagents-course', '_blank');
         });
     }
 
