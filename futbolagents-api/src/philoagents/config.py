@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     GROQ_LLM_MODEL_SUMMARY: str = "llama-3.1-8b-instant"
 
     # --- OpenAI Configuration (Required for evaluation) ---
-    OPENAI_API_KEY: str
+    OPENAI_API_KEY: str | None = Field(default=None, description="API key for OpenAI (required for evaluation only).")
 
     # --- MongoDB Configuration ---
     MONGO_URI: str = Field(

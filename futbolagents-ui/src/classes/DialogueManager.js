@@ -125,6 +125,10 @@ class DialogueManager {
       },
       onStreamingEnd: () => {
         this.finishStreaming();
+      },
+      onError: (error) => {
+        this.isStreaming = false;
+        this.dialogueBox.show("Sorry, I can't respond right now.", true);
       }
     };
 

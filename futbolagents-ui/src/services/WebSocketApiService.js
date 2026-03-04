@@ -74,6 +74,7 @@ class WebSocketApiService {
     
     if (data.error) {
       console.error('WebSocket error:', data.error);
+      this.triggerCallback('error', data.error);
       return;
     }
     
@@ -141,6 +142,10 @@ class WebSocketApiService {
     
     if (callbacks.onChunk) {
       this.messageCallbacks.set('chunk', callbacks.onChunk);
+    }
+
+    if (callbacks.onError) {
+      this.messageCallbacks.set('error', callbacks.onError);
     }
   }
 
