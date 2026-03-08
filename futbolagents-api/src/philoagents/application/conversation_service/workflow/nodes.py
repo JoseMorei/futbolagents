@@ -1,3 +1,5 @@
+from opentelemetry import trace
+
 from langchain_core.messages import RemoveMessage
 from langchain_core.runnables import RunnableConfig
 from langgraph.prebuilt import ToolNode
@@ -11,59 +13,71 @@ from philoagents.application.conversation_service.workflow.state import PlayerSt
 from philoagents.application.conversation_service.workflow.tools import tools
 from philoagents.config import settings
 
+tracer = trace.get_tracer("futbolagents.workflow")
+
 retriever_node = ToolNode(tools)
 
 
 async def conversation_node(state: PlayerState, config: RunnableConfig):
-    summary = state.get("summary", "")
-    conversation_chain = get_player_response_chain()
+    with tracer.start_as_current_span("conversation_node") as span:
+        span.set_attribute("player.name", state.get("player_name", "unknown"))
+        span.set_attribute("messages.count", len(state["messages"]))
 
-    response = await conversation_chain.ainvoke(
-        {
-            "messages": state["messages"],
-            "player_context": state["player_context"],
-            "player_name": state["player_name"],
-            "player_perspective": state["player_perspective"],
-            "player_style": state["player_style"],
-            "summary": summary,
-        },
-        config,
-    )
+        summary = state.get("summary", "")
+        conversation_chain = get_player_response_chain()
 
-    return {"messages": response}
+        response = await conversation_chain.ainvoke(
+            {
+                "messages": state["messages"],
+                "player_context": state["player_context"],
+                "player_name": state["player_name"],
+                "player_perspective": state["player_perspective"],
+                "player_style": state["player_style"],
+                "summary": summary,
+            },
+            config,
+        )
+
+        return {"messages": response}
 
 
 async def summarize_conversation_node(state: PlayerState):
-    summary = state.get("summary", "")
-    summary_chain = get_conversation_summary_chain(summary)
+    with tracer.start_as_current_span("summarize_conversation_node") as span:
+        span.set_attribute("player.name", state.get("player_name", "unknown"))
+        span.set_attribute("messages.count", len(state["messages"]))
 
-    response = await summary_chain.ainvoke(
-        {
-            "messages": state["messages"],
-            "player_name": state["player_name"],
-            "summary": summary,
-        }
-    )
+        summary = state.get("summary", "")
+        summary_chain = get_conversation_summary_chain(summary)
 
-    delete_messages = [
-        RemoveMessage(id=m.id)
-        for m in state["messages"][: -settings.TOTAL_MESSAGES_AFTER_SUMMARY]
-    ]
-    return {"summary": response.content, "messages": delete_messages}
+        response = await summary_chain.ainvoke(
+            {
+                "messages": state["messages"],
+                "player_name": state["player_name"],
+                "summary": summary,
+            }
+        )
+
+        delete_messages = [
+            RemoveMessage(id=m.id)
+            for m in state["messages"][: -settings.TOTAL_MESSAGES_AFTER_SUMMARY]
+        ]
+        return {"summary": response.content, "messages": delete_messages}
 
 
 async def summarize_context_node(state: PlayerState):
-    context_summary_chain = get_context_summary_chain()
+    with tracer.start_as_current_span("summarize_context_node"):
+        context_summary_chain = get_context_summary_chain()
 
-    response = await context_summary_chain.ainvoke(
-        {
-            "context": state["messages"][-1].content,
-        }
-    )
-    state["messages"][-1].content = response.content
+        response = await context_summary_chain.ainvoke(
+            {
+                "context": state["messages"][-1].content,
+            }
+        )
+        state["messages"][-1].content = response.content
 
-    return {}
+        return {}
 
 
 async def connector_node(state: PlayerState):
-    return {}
+    with tracer.start_as_current_span("connector_node"):
+        return {}
