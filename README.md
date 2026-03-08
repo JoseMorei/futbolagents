@@ -39,6 +39,12 @@ FutbolAgents lets you talk to these iconic football players:
 
 ---
 
+
+<p align="center">
+  <img src="static/diagrams/start.png" alt="Game Start" width="480">
+  <img src="static/diagrams/field.png" alt="Football Field" width="480">
+</p>
+
 ## 🔧 Key Changes from PhiloAgents
 
 ### 1. Based on PhiloAgents
