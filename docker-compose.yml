@@ -12,6 +12,18 @@ services:
       - config:/data/configdb
     networks:
       - philoagents-network
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: futbolagents-jaeger
+    ports:
+      - "16686:16686"   # Jaeger UI
+      - "4317:4317"     # OTLP gRPC receiver
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+    networks:
+      - philoagents-network
+
   api:
     container_name: futbolagents-api
     build:
@@ -19,12 +31,17 @@ services:
       dockerfile: Dockerfile
     environment:
       - MONGODB_URI=mongodb://philoagents:philoagents@local_dev_atlas:27017/?directConnection=true
+      - OTEL_ENABLED=true
+      - JAEGER_ENDPOINT=http://jaeger:4317
     ports:
       - "8000:8000"
     env_file:
       - ./futbolagents-api/.env
+    depends_on:
+      - jaeger
     networks:
       - philoagents-network
+
   ui:
     container_name: futbolagents-ui
     build:
