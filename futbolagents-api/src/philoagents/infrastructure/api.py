@@ -15,21 +15,21 @@ from philoagents.application.conversation_service.reset_conversation import (
 from philoagents.domain.philosopher_factory import PlayerFactory
 
 from .opik_utils import configure
+from .telemetry import configure_telemetry
 
 configure()
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Handles startup and shutdown events for the API."""
-    # Startup code (if any) goes here
     yield
-    # Shutdown code goes here
     opik_tracer = OpikTracer()
     opik_tracer.flush()
 
 
 app = FastAPI(lifespan=lifespan)
+
+configure_telemetry(app)
 
 app.add_middleware(
     CORSMiddleware,
@@ -85,9 +85,7 @@ async def websocket_chat(websocket: WebSocket):
 
             try:
                 player_factory = PlayerFactory()
-                player = player_factory.get_player(
-                    data["player_id"]
-                )
+                player = player_factory.get_player(data["player_id"])
 
                 response_stream = get_streaming_response(
                     messages=data["message"],
@@ -121,13 +119,6 @@ async def websocket_chat(websocket: WebSocket):
 
 @app.post("/reset-memory")
 async def reset_conversation():
-    """Resets the conversation state. It deletes the two collections needed for keeping LangGraph state in MongoDB.
-
-    Raises:
-        HTTPException: If there is an error resetting the conversation state.
-    Returns:
-        dict: A dictionary containing the result of the reset operation.
-    """
     try:
         result = await reset_conversation_state()
         return result
