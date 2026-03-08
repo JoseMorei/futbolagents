@@ -57,6 +57,7 @@ class Settings(BaseSettings):
     RAG_TOP_K: int = 3
     RAG_DEVICE: str = "cpu"
     RAG_CHUNK_SIZE: int = 256
+    FAISS_INDEX_PATH: Path = Path("data/faiss_index")
 
     # --- Paths Configuration ---
     EVALUATION_DATASET_FILE_PATH: Path = Path("data/evaluation_dataset.json")
