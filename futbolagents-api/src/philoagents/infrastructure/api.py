@@ -15,21 +15,19 @@ from philoagents.application.conversation_service.reset_conversation import (
 from philoagents.domain.philosopher_factory import PlayerFactory
 
 from .opik_utils import configure
-from .telemetry import configure_telemetry
 
 configure()
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    """Handles startup and shutdown events for the API."""
     yield
     opik_tracer = OpikTracer()
     opik_tracer.flush()
 
 
 app = FastAPI(lifespan=lifespan)
-
-configure_telemetry(app)
 
 app.add_middleware(
     CORSMiddleware,
