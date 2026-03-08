@@ -1,383 +1,138 @@
 <div align="center">
-  <h1>PhiloAgents Course</h1>
-  <h3>Learn how to build an AI-powered game simulation engine to impersonate popular philosophers.</h3>
-  <p class="tagline">Open-source course by <a href="https://theneuralmaze.substack.com/">The Neural Maze</a> and <a href="https://decodingml.substack.com">Decoding ML</a> in collaboration with </br> <a href="https://rebrand.ly/philoagents-mongodb">MongoDB</a>, <a href="https://rebrand.ly/philoagents-opik">Opik</a> and <a href="https://rebrand.ly/philoagents-groq">Groq</a>.</p>
+  <h1>FutbolAgents</h1>
+  <h3>An AI-powered game simulation engine where you talk to legendary football (soccer) players.</h3>
+  <p class="tagline">Built by <a href="https://github.com/JoseMorei">Jose Moreira</a>, forked and adapted from <a href="https://github.com/neural-maze/philoagents-course">PhiloAgents</a> by The Neural Maze & Decoding ML.</p>
 </div>
 
 </br>
 
 <p align="center">
-    <img src="static/diagrams/system_architecture.png" alt="Architecture" width="600">
+    <img src="futbolagents_diagram.png" alt="FutbolAgents Architecture" width="700">
 </p>
 
-## 📖 About This Course
+## 📖 About This Project
 
-Ever dreamed of building your own AI-powered game? Get ready for an exciting journey where we'll combine the thrill of game development with cutting-edge AI technology!
+**FutbolAgents** is a personal project forked and heavily modified from [PhiloAgents](https://github.com/neural-maze/philoagents-course), an open-source course that teaches how to build an AI-powered game simulation engine to impersonate historical philosophers.
 
-Welcome to **PhiloAgents** (a team-up between [Decoding ML](https://decodingml.substack.com) and [The Neural Maze](https://theneuralmaze.substack.com)) - where ancient philosophy meets modern AI. In this hands-on course, you'll build an AI agent simulation engine that brings historical philosophers to life in an interactive game environment. Imagine having deep conversations with Plato, debating ethics with Aristotle, or discussing artificial intelligence with Turing himself!
+In FutbolAgents, the philosophers are replaced by **legendary football (soccer) players**. You can have conversations with the greatest players in history — each with their own style, personality, and football philosophy.
 
-**In 6 comprehensive modules**, you'll learn how to:
-- Create AI agents that authentically embody historical philosophers
-- Master building agentic applications
-- Architect and implement a production-ready RAG, LLM and LLMOps system from scratch
+The project preserves the core agentic RAG architecture from PhiloAgents but introduces several key technical changes described below.
 
-### 🎮 The PhiloAgents Experience. What You'll Do:
+---
 
-Transform static NPCs into dynamic AI personalities that:
-- Build a game character simulation engine, powered by AI agents and LLMs, that impersonates philosophers from our history, such as Plato, Aristotle and Turing.
-- Design production-ready agentic RAG systems.
-- Ship the agent as a RESTful API.
-- Apply LLMOps and software engineering best practices.
-- Use industry tools: Groq, MongoDB, Opik, LangGraph, LangChain, FastAPI, Websockets, Docker, etc.
+## ⚽ Meet the Legends
 
-After completing this course, you'll have access to your own agentic simulation engine, as seen in the video below:
+FutbolAgents lets you talk to these iconic football players:
 
-<video src="https://github.com/user-attachments/assets/aedc041e-00ed-42ce-99f2-24ce74847e7a"/></video>
+| Player | Country | Known For |
+|--------|---------|-----------|
+| **Diego Maradona** | 🇦🇷 Argentina | The Hand of God, the Goal of the Century |
+| **Johan Cruyff** | 🇳🇱 Netherlands | Total Football, tactical genius |
+| **Pelé** | 🇧🇷 Brazil | Three World Cups, the beautiful game |
+| **Ronaldo Nazário** | 🇧🇷 Brazil | The Phenomenon, 2002 World Cup |
+| **Luis Suárez** | 🇺🇾 Uruguay | Relentless hunger, clinical finishing |
+| **Diego Forlán** | 🇺🇾 Uruguay | 2010 World Cup Golden Ball |
+| **Franz Beckenbauer** | 🇩🇪 Germany | The Kaiser, revolutionary libero |
+| **Alfredo Di Stéfano** | 🇦🇷🇪🇸 Argentina/Spain | Five European Cups with Real Madrid |
+| **Ferenc Puskás** | 🇭🇺 Hungary | The Mighty Magyars, pure technique |
+| **Garrincha** | 🇧🇷 Brazil | Joy, dribbling magic, football freedom |
 
--------
+---
 
-<table style="border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td width="20%" style="border: none;">
-      <a href="https://theneuralmaze.substack.com/" aria-label="The Neural Maze">
-        <img src="https://avatars.githubusercontent.com/u/151655127?s=400&u=2fff53e8c195ac155e5c8ee65c6ba683a72e655f&v=4" alt="The Neural Maze Logo" width="150"/>
-      </a>
-    </td>
-    <td width="80%" style="border: none;">
-      <div>
-        <h2>📬 Stay Updated</h2>
-        <p><b><a href="https://theneuralmaze.substack.com/">Join The Neural Maze</a></b> and learn to build AI Systems that actually work, from principles to production. Every Wednesday, directly to your inbox. Don't miss out!
-</p>
-      </div>
-    </td>
-  </tr>
-</table>
+## 🔧 Key Changes from PhiloAgents
 
-<p align="center">
-  <a href="https://theneuralmaze.substack.com/">
-    <img src="https://img.shields.io/static/v1?label&logo=substack&message=Subscribe%20Now&style=for-the-badge&color=black&scale=2" alt="Subscribe Now" height="40">
-  </a>
-</p>
+### 1. Based on PhiloAgents
+This project is directly forked from [PhiloAgents](https://github.com/neural-maze/philoagents-course). All credit for the original architecture, course materials, and agentic RAG design goes to The Neural Maze and Decoding ML teams.
 
-<table style="border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td width="20%" style="border: none;">
-      <a href="https://decodingml.substack.com/" aria-label="Decoding ML">
-        <img src="https://github.com/user-attachments/assets/f2f2f9c0-54b7-4ae3-bf8d-23a359c86982" alt="Decoding ML Logo" width="150"/>
-      </a>
-    </td>
-    <td width="80%" style="border: none;">
-      <div>
-        <h2>📬 Stay Updated</h2>
-        <p><b><a href="https://decodingml.substack.com/">Join Decoding ML</a></b> for proven content on designing, coding, and deploying production-grade AI systems with software engineering and MLOps best practices to help you ship AI applications. Every week, straight to your inbox.</p>
-      </div>
-    </td>
-  </tr>
-</table>
+### 2. SQLite replaces MongoDB
+The original PhiloAgents used **MongoDB** for both short-term and long-term memory storage. In FutbolAgents, MongoDB has been replaced by **SQLite** — a lightweight, file-based relational database that requires no external service or cloud connection, making local development significantly simpler.
 
-<p align="center">
-  <a href="https://decodingml.substack.com/">
-    <img src="https://img.shields.io/static/v1?label&logo=substack&message=Subscribe%20Now&style=for-the-badge&color=black&scale=2" alt="Subscribe Now" height="40">
-  </a>
-</p>
+### 3. FAISS for vector search
+**FAISS** (Facebook AI Similarity Search) has been added as the vector search engine for the RAG (Retrieval-Augmented Generation) pipeline. FAISS provides fast and efficient similarity search over dense vector embeddings entirely in-memory and locally, removing the need for a managed vector database.
 
-## 🎯 What You'll Learn
+### 4. New LLM: Meta Llama 4 Scout
+The LLM backbone has been upgraded from `llama-3.1-8b-instant` to:
 
-While building the PhiloAgents simulation engine, you'll master:
+```
+meta-llama/llama-4-scout-17b-16e-instruct
+```
 
-- Building intelligent agents with LangGraph
-  - Agent development and orchestration
-  - RAG agentic communication patterns
-  - Character impersonation through prompt engineering (Plato, Aristotle, Turing)
+This model is served via [Groq](https://groq.com) for high-speed inference.
 
-- Creating production-grade RAG systems
-  - Vector database integration
-  - Knowledge base creation from Wikipedia and Stanford Encyclopedia
-  - Advanced information retrieval
+### 5. New Data Sources
+The original PhiloAgents scraped data from **Wikipedia** and the **Stanford Encyclopedia of Philosophy** to build the long-term memory of each philosopher.
 
-- Engineering the system architecture
-  - End-to-end design (UI → Backend → Agent → Monitoring)
-  - RESTful API deployment with FastAPI and Docker
-  - Real-time communication via WebSockets
+In FutbolAgents, the Stanford Encyclopedia of Philosophy has been replaced by **[Transfermarkt.com](https://www.transfermarkt.com)** — a comprehensive football statistics and career data website. Data sources are now:
 
-- Implementing advanced agent features
-  - Short and long-term memory with MongoDB
-  - Dynamic conversation handling
-  - Real-time response generation
+- **Wikipedia** — biographical information and career overviews
+- **Transfermarkt.com** — career stats, transfers, and football-specific data
 
-- Mastering industry tools and practices
-  - Integration with Groq, MongoDB, Opik
-  - Modern Python tooling (uv, ruff)
-  - LangChain and LangGraph ecosystems
-  - Leveraging LLMs on GroqCloud for high-speed inference
+### 6. Components Tested but Discarded
 
-- Applying LLMOps best practices
-  - Automated agent evaluation
-  - Prompt monitoring and versioning
-  - Evaluation dataset generation
+During development, several components were evaluated but ultimately not included in the final product:
 
-🥷 By the end, you'll be a ninja in production-ready AI agent development!
+| Component | What it is | Why discarded |
+|-----------|-----------|---------------|
+| **[Ollama](https://ollama.com)** | A tool for running large language models locally on your machine | Replaced by Groq API for better speed and convenience |
+| **[Qwen LLM](https://huggingface.co/Qwen)** | An open-source LLM family by Alibaba Cloud | Replaced by Meta's Llama 4 Scout for better performance on this task |
+| **[Typesense](https://typesense.org)** | An open-source, typo-tolerant search engine optimized for fast, full-text search | Not needed once FAISS was chosen for vector similarity search |
 
-## 👥 Who Should Join?
-
-**This course is tailored for people who learn by building.** After completing the course, you will have your own code template and enough inspiration to develop your personal agentic applications.
-
-| Target Audience | Why Join? |
-|-----------------|-----------|
-| ML/AI Engineers | Build production-ready agentic applications (beyond Notebook tutorials). |
-| Data/Software Engineers | Architect end-to-end agentic applications. |
-| Data Scientists | Implement production agentic systems using LLMOps and SWE best practices. |
-
-## 🎓 Prerequisites
-
-| Category | Requirements |
-|----------|-------------|
-| **Skills** | - Python (Beginner) <br/> - Machine Learning, LLMs, RAG (Beginner) |
-| **Hardware** | Modern laptop/PC (We will use Groq and OpenAI APIs to call our LLMs) |
-| **Level** | Beginner to Intermediate |
-
-
-## 💰 Cost Structure
-
-**The course is open-source and completely free!** You can run the simulation engine without any of the advanced LLMOps features at 0 cost.
-
-If you choose to run the entire system end-to-end (this is optional), the maximum cost for cloud tools is approximately $1:
-
-| Service | Estimated Maximum Cost |
-|---------|------------------------|
-| Groq's API | $0 |
-| OpenAI's API (Optional) | ~$1 |
-
-In Module 5 (optional module), we use OpenAI's API as an LLM-as-a-judge to evaluate our agents. In the rest of the course, we use Groq's API, which offers a free tier.
-
-**Just reading the materials? It's all free!**
-
-## 🥂 Open-source Course: Participation is Open and Free
-
-As an open-source course, you don't have to enroll. Everything is self-paced, free of charge, and with its resources freely accessible at (video and articles are complementary - go through both for the whole picture):
-- **code**: this GitHub repository
-- **videos**: [The Neural Maze](https://www.youtube.com/@TheNeuralMaze)
-- **articles**: [Decoding ML](https://decodingml.substack.com)
-
-## 📚 Course Outline
-
-This **open-source course consists of 6 comprehensive modules** covering theory, system design, and hands-on implementation.
-
-[Read this](https://decodingml.substack.com/p/from-0-to-pro-ai-agents-roadmap) for a quick walkthrough of what you will learn in each module.
-
-Our recommendation for getting the most out of this course:
-1. Clone the repository.
-2. Read the materials (video and articles are complementary - go through both for the whole picture)
-3. Set up the code and run it to replicate our results.
-4. Go deeper into the code to understand the details of the implementation.
-
-
-| Module | Written Lesson | Video Lesson | Description | Running the code |
-|--------|----------------|--------------|-------------|------------------|
-| <div align="center">0</div>  | <a href="https://decodingml.substack.com/p/from-0-to-pro-ai-agents-roadmap"><img src="static/diagrams/episode_1_play.png" alt="Diagram 0" width="300"></a> | <div align="center">**No Video**</div> | Quick walkthrough over what you will learn in each module. | <div align="center">**No code**</div> |
-| <div align="center">1</div>  | <a href="https://decodingml.substack.com/p/build-your-gaming-simulation-ai-agent"><img src="static/diagrams/episode_1_play.png" alt="Diagram 1" width="300"></a> | <a href="https://youtu.be/vbhShB70vFE?si=tK0hRQbEqlZMwFMm"><img src="static/thumbnails/episode_1_play.png" alt="Thumbnail 1" width="400"></a> | Architect your gaming simulation AI PhiloAgent. | <div align="center">**No code**</div> |
-| <div align="center">2</div> | <a href="https://decodingml.substack.com/p/your-first-production-ready-rag-agent"><img src="static/diagrams/episode_2_play.png" alt="Diagram 2" width="300"></a> | <a href="https://youtu.be/5fqkdiTP5Xw?si=Y1erl41qNSYlSaYx"><img src="static/thumbnails/episode_2_play.png" alt="Thumbnail 2" width="400"></a> | Building the PhiloAgent in LangGraph using agentic RAG. | [futbolagents-api](futbolagents-api) |
-| <div align="center">3</div> | <a href="https://decodingml.substack.com/p/memory-the-secret-sauce-of-ai-agents"><img src="static/diagrams/episode_3_play.png" alt="Diagram 3" width="300"></a> | <a href="https://youtu.be/xDouz4WNHV0?si=t2Wk179LQnSDY1iL"><img src="static/thumbnails/episode_3_play.png" alt="Thumbnail 3" width="400"></a> | Wrapping up our agentic RAG layer by implementing the short-term and long-term memory components. | [futbolagents-api](futbolagents-api) |
-| <div align="center">4</div> | <a href="https://decodingml.substack.com/p/deploying-agents-as-real-time-apis"><img src="static/diagrams/episode_4_play.png" alt="Diagram 4" width="300"></a>  | <a href="https://youtu.be/svABzOASrzg?si=nylMpFm0nozPNSbi"><img src="static/thumbnails/episode_4_play.png" alt="Thumbnail 4" width="400"></a> | Expose the agent as a RESTful API (FastAPI + Websockets). | [futbolagents-api](futbolagents-api) |
-| <div align="center">5</div> | <a href="https://decodingml.substack.com/p/observability-for-rag-agents"><img src="static/diagrams/episode_5_play.png" alt="Diagram 5" width="300"></a>  | <a href="https://youtu.be/Yy0szt5OlNI?si=otYpqM_BY2gxdxnS"><img src="static/thumbnails/episode_5_play.png" alt="Thumbnail 5" width="400"></a> | Observability for RAG agents (part of LLMOps): evaluating agents, prompt monitoring, prompt versioning, etc. | [futbolagents-api](futbolagents-api) |
-| <div align="center">6</div> | <a href="https://decodingml.substack.com/p/engineer-python-projects-like-a-pro"><img src="static/diagrams/episode_6_play.png" alt="Diagram 6" width="300"></a>   | <div align="center">**No Video**</div> | Structuring Python projects like a PRO. Modern Python tooling. Docker setup. | [futbolagents-api](futbolagents-api) |
-
-And if you're feeling extra brave, there's also a 2h 30m video course where we have merged all the video lessons into one.
-
-<p align="center">
-    <a href="https://youtu.be/pg1Sn9rsFak?si=bKMdL-EbaMb90PT3"><img src="static/thumbnails/full_course_play.png" alt="PhiloAgents Full Course" width="500"></a>
-</p>
-
-
-------
-
-<table style="border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td width="20%" style="border: none;">
-      <a href="https://theneuralmaze.substack.com/" aria-label="The Neural Maze">
-        <img src="https://avatars.githubusercontent.com/u/151655127?s=400&u=2fff53e8c195ac155e5c8ee65c6ba683a72e655f&v=4" alt="The Neural Maze Logo" width="150"/>
-      </a>
-    </td>
-    <td width="80%" style="border: none;">
-      <div>
-        <h2>📬 Stay Updated</h2>
-        <p><b><a href="https://theneuralmaze.substack.com/">Join The Neural Maze</a></b> and learn to build AI Systems that actually work, from principles to production. Every Wednesday, directly to your inbox. Don't miss out!
-</p>
-      </div>
-    </td>
-  </tr>
-</table>
-
-<p align="center">
-  <a href="https://theneuralmaze.substack.com/">
-    <img src="https://img.shields.io/static/v1?label&logo=substack&message=Subscribe%20Now&style=for-the-badge&color=black&scale=2" alt="Subscribe Now" height="40">
-  </a>
-</p>
-
-<table style="border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td width="20%" style="border: none;">
-      <a href="https://decodingml.substack.com/" aria-label="Decoding ML">
-        <img src="https://github.com/user-attachments/assets/f2f2f9c0-54b7-4ae3-bf8d-23a359c86982" alt="Decoding ML Logo" width="150"/>
-      </a>
-    </td>
-    <td width="80%" style="border: none;">
-      <div>
-        <h2>📬 Stay Updated</h2>
-        <p><b><a href="https://decodingml.substack.com/">Join Decoding ML</a></b> for proven content on designing, coding, and deploying production-grade AI systems with software engineering and MLOps best practices to help you ship AI applications. Every week, straight to your inbox.</p>
-      </div>
-    </td>
-  </tr>
-</table>
-
-<p align="center">
-  <a href="https://decodingml.substack.com/">
-    <img src="https://img.shields.io/static/v1?label&logo=substack&message=Subscribe%20Now&style=for-the-badge&color=black&scale=2" alt="Subscribe Now" height="40">
-  </a>
-</p>
+---
 
 ## 🏗️ Project Structure
 
-While building the PhiloAgents simulation engine, we will rely on two separate applications:
-
 ```bash
 .
-├── futbolagents-api/     # Backend API containing the PhiloAgents simulation engine (Python)
-└── futbolagents-ui/      # Frontend UI for the game (Node)
+├── futbolagents-api/     # Backend API containing the FutbolAgents simulation engine (Python)
+├── futbolagents-ui/      # Frontend UI for the game (Node)
+├── futbolagents_diagram.png  # Architecture diagram
+└── README.md
 ```
 
-The course will focus only on the `futbolagents-api` application that contains all the agent simulation logic. The `futbolagents-ui` application is used to play the game.
+The core agent logic lives in `futbolagents-api`. The `futbolagents-ui` provides the game interface.
 
-## 👔 Dataset
+---
 
-To impersonate our philosopher agents with real-world knowledge, we will populate their long-term memory with data from:
-- Wikipedia
-- The Stanford Encyclopedia of Philosophy
+## 🗃️ Dataset
 
-You don't have to download anything explicitly. While populating the long-term memory, the `futbolagents-api` application will download the data from the internet automatically.
+Each player's long-term memory is populated with data automatically retrieved from:
+- **Wikipedia** — general biography and career history
+- **Transfermarkt.com** — career statistics, clubs, and achievements
+
+No manual downloads are required. The `futbolagents-api` application fetches and processes this data at setup time.
+
+---
 
 ## 🚀 Getting Started
 
 Find detailed setup and usage instructions in the [INSTALL_AND_USAGE.md](INSTALL_AND_USAGE.md) file.
 
-**Pro tip:** Read the accompanying articles first for a better understanding of the system you'll build.
+---
 
 ## 💡 Questions and Troubleshooting
 
-Have questions or running into issues? We're here to help!
-
-Open a [GitHub issue](https://github.com/neural-maze/philoagents-course/issues) for:
-- Questions about the course material
+Open a [GitHub issue](https://github.com/JoseMorei/futbolagents/issues) for:
 - Technical troubleshooting
-- Clarification on concepts
+- Questions about the implementation
+- Bug reports
+
+---
 
 ## 🥂 Contributing
 
-As an open-source course, we may not be able to fix all the bugs that arise.
+Feel free to fork, open issues, and submit pull requests.
 
-If you find any bugs and know how to fix them, support future readers by contributing to this course with your bug fix.
+1. Fork the repository
+2. Create a feature branch
+3. Fix the bug or add the feature
+4. Open a pull request
 
-You can always contribute by:
-- Forking the repository
-- Fixing the bug
-- Creating a pull request
-
-📍 [For more details, see the contributing guide.](CONTRIBUTING.md)
-
-We will deeply appreciate your support for the AI community and future readers 🤗
-
-## Sponsors
-
-<div align="center">
-  <table style="border-collapse: collapse; border: none;">
-    <tr style="border: none;">
-      <td align="center" style="border: none; padding: 20px;">
-        <a href="https://rebrand.ly/philoagents-mongodb" target="_blank">
-          <img src="static/sponsors/mongo.png" width="200" style="max-height: 45px; width: auto;" alt="MongoDB">
-        </a>
-      </td>
-      <td align="center" style="border: none; padding: 20px;">
-        <a href="https://rebrand.ly/philoagents-opik" target="_blank">
-          <img src="static/sponsors/opik.png" width="200" style="max-height: 45px; width: auto;" alt="Opik">
-        </a>
-      </td>
-      <td align="center" style="border: none; padding: 20px;">
-        <a href="https://rebrand.ly/philoagents-groq" target="_blank">
-          <img src="static/sponsors/groq.png" width="200" style="max-height: 45px; width: auto;" alt="Groq">
-        </a>
-      </td>
-    </tr>
-  </table>
-</div>
-
-## Core Contributors
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/iusztinpaul">
-        <img src="https://github.com/iusztinpaul.png" width="100px;" alt="Paul Iusztin"/><br />
-        <sub><b>Paul Iusztin</b></sub>
-      </a><br />
-      <sub>AI/ML Engineer</sub>
-    </td>
-    <td align="center">
-      <a href="https://github.com/MichaelisTrofficus">
-        <img src="https://github.com/MichaelisTrofficus.png" width="100px;" alt="Miguel Otero Pedrido"/><br />
-        <sub><b>Miguel Otero Pedrido</b></sub>
-      </a><br />
-      <sub>AI/ML Engineer</sub>
-    </td>
-  </tr>
-</table>
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
-------
+---
 
-<table style="border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td width="20%" style="border: none;">
-      <a href="https://theneuralmaze.substack.com/" aria-label="The Neural Maze">
-        <img src="https://avatars.githubusercontent.com/u/151655127?s=400&u=2fff53e8c195ac155e5c8ee65c6ba683a72e655f&v=4" alt="The Neural Maze Logo" width="150"/>
-      </a>
-    </td>
-    <td width="80%" style="border: none;">
-      <div>
-        <h2>📬 Stay Updated</h2>
-        <p><b><a href="https://theneuralmaze.substack.com/">Join The Neural Maze</a></b> and learn to build AI Systems that actually work, from principles to production. Every Wednesday, directly to your inbox. Don't miss out!
-</p>
-      </div>
-    </td>
-  </tr>
-</table>
-
-<p align="center">
-  <a href="https://theneuralmaze.substack.com/">
-    <img src="https://img.shields.io/static/v1?label&logo=substack&message=Subscribe%20Now&style=for-the-badge&color=black&scale=2" alt="Subscribe Now" height="40">
-  </a>
-</p>
-
-<table style="border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td width="20%" style="border: none;">
-      <a href="https://decodingml.substack.com/" aria-label="Decoding ML">
-        <img src="https://github.com/user-attachments/assets/f2f2f9c0-54b7-4ae3-bf8d-23a359c86982" alt="Decoding ML Logo" width="150"/>
-      </a>
-    </td>
-    <td width="80%" style="border: none;">
-      <div>
-        <h2>📬 Stay Updated</h2>
-        <p><b><a href="https://decodingml.substack.com/">Join Decoding ML</a></b> for proven content on designing, coding, and deploying production-grade AI systems with software engineering and MLOps best practices to help you ship AI applications. Every week, straight to your inbox.</p>
-      </div>
-    </td>
-  </tr>
-</table>
-
-<p align="center">
-  <a href="https://decodingml.substack.com/">
-    <img src="https://img.shields.io/static/v1?label&logo=substack&message=Subscribe%20Now&style=for-the-badge&color=black&scale=2" alt="Subscribe Now" height="40">
-  </a>
-</p>
+> **FutbolAgents** is a personal adaptation of [PhiloAgents](https://github.com/neural-maze/philoagents-course). All original course content, architecture, and design credit belongs to [The Neural Maze](https://theneuralmaze.substack.com/) and [Decoding ML](https://decodingml.substack.com).
