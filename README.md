@@ -7,7 +7,7 @@
 </br>
 
 <p align="center">
-    <img src="static/diagrams/system_architecture.png" alt="FutbolAgents Architecture" width="700">
+    <img src="static/diagrams/futbolagents_diagram.png" alt="FutbolAgents Architecture" width="700">
 </p>
 
 ## 📖 About This Project
@@ -85,7 +85,7 @@ During development, several components were evaluated but ultimately not include
 .
 ├── futbolagents-api/     # Backend API containing the FutbolAgents simulation engine (Python)
 ├── futbolagents-ui/      # Frontend UI for the game (Node)
-├── static/diagrams/system_architecture.png  # Architecture diagram
+├── static/diagrams/futbolagents_diagram.png  # Architecture diagram
 └── README.md
 ```
 
