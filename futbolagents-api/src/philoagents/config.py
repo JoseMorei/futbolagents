@@ -37,16 +37,6 @@ class Settings(BaseSettings):
         description="Project name for Comet ML and Opik tracking.",
     )
 
-    # --- OpenTelemetry / Jaeger Configuration ---
-    OTEL_ENABLED: bool = Field(
-        default=False,
-        description="Enable OpenTelemetry distributed tracing.",
-    )
-    JAEGER_ENDPOINT: str = Field(
-        default="http://localhost:4317",
-        description="OTLP gRPC endpoint for Jaeger (or any OTel collector).",
-    )
-
     # --- Agents Configuration ---
     TOTAL_MESSAGES_SUMMARY_TRIGGER: int = 30
     TOTAL_MESSAGES_AFTER_SUMMARY: int = 5
